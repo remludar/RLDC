@@ -6,15 +6,21 @@ public class Gun : MonoBehaviour
     float nextTimeToFire = 0;
     float accuracyModifier = 0.1f; // this needs to be adjusted to get higher with distance
     float bulletSpeed = 500f;
-    Player player;
 
-    void Start()
+    void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        if (InputManager.isLMBDown)
+        {
+            Fire();
+        }
     }
-    
 
-    void Shoot()
+    void LateUpdate()
+    {
+       gameObject.transform.rotation = Camera.main.transform.rotation;
+    }
+
+    public void Fire()
     {
         if (Time.time >= nextTimeToFire)
         {
@@ -32,10 +38,5 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Fire()
-    {
-        Shoot();
     }
 }

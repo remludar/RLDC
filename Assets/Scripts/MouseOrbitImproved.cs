@@ -38,8 +38,6 @@ public class MouseOrbitImproved : MonoBehaviour
             if (!target.gameObject.GetComponent<Player>().isMenuItemOpen)
             {
                 UpdatePositionAndRotation();
-
-                
             }
         }
     }
